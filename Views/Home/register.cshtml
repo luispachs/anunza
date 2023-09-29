@@ -1,0 +1,88 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using TablonAnuncios.DataModels
+@inject IViewLocalizer localizer
+@model RegisterDataModel
+@{
+    ViewData["title"] = localizer["title"];
+
+}
+<div class="row justify-content-center align-content-center">
+    <form class="col-7" method="post" asp-controller="Home" asp-action="newUserAction" name="register-form">
+        <div class="form-group">
+            <label for="nit" class="form-label">@localizer["label_identification"]:</label>
+            <input type="number" placeholder="@localizer["label_identification"]" class="form-control" name="nit" />
+        </div>
+        <div class="form-group">
+            <label for="firstname" class="form-label">@localizer["label_name"]:</label>
+            <input type="text" placeholder="@localizer["label_name"]" class="form-control" name="firstname" />
+        </div>
+        <div class="form-group">
+            <label for="lastname" class="form-label">@localizer["label_lastname"]:</label>
+            <input type="text" placeholder="@localizer["label_lastname"]" class="form-control" name="lastname" />
+        </div>
+        <div class="form-group">
+            <label for="email" class="form-label">@localizer["label_email"]:</label>
+            <input type="email" placeholder="@localizer["label_email"]" class="form-control" name="email" />
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-6">
+                    <label for="estate" class="form-label">@localizer["label_estate"]:</label>
+                    <select name="estate" class="form-label" id="estate">
+                        @foreach (var estate in Model.State)
+                        {
+                            <option value="@estate.Id">@estate.Name</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-6">
+                    <label for="city" class="form-label">@localizer["label_city"]:</label>
+                    <select name="city" class="form-label" id="city" style="width:inherit">
+                        <option value=" "></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="form-label">@localizer["label_password"]:</label>
+                <input type="password" placeholder="@localizer["label_password"]" class="form-control" name="password" />
+            </div>
+            <div class="form-group">
+                <label for="password-repeat" class="form-label">@localizer["label_password_repeat"]:</label>
+                <input type="password" placeholder="@localizer["label_password_repeat"]" class="form-control" name="password-repeat" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-label">@localizer["label_phone"]</label>
+            <input type="tel" class="form-control" placeholder="@localizer["label_phone"]" name="phone" />
+        </div>
+
+        <div class="form-group">
+            <button type="submit">@localizer["botton_confirm"]</button>
+            <button>@localizer["botton_cancel"]</button>
+        </div>
+
+    </form>
+</div>
+
+<script>
+    let estateSelector = document.getElementById("estate");
+    estateSelector.onchange = async event => {
+
+        console.log(event.target.value);
+        let response = await fetch("/get-cities/" + event.target.value).then(resp => {
+            return resp.json()
+        }).then(json => {
+            return json.citiesList.result;
+        });
+        let citySelect = document.getElementById("city");
+        citySelect.innerHTML = ""
+        response.forEach(elem => {
+            option = document.createElement('option');
+            option.value = elem.id;
+            option.innerHTML = elem.name;
+            citySelect.appendChild(option);
+        })
+
+
+    }
+</script>

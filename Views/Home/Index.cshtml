@@ -1,0 +1,23 @@
+﻿@using TablonAnuncios.DataModels
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Http
+@model IndexDataModel
+@inject IViewLocalizer localizer
+@{
+    ViewData["Title"] = "Home";
+    ViewBag.user = Model.User;
+}
+
+<div class="container-fluid">
+    @if (User.Identity.IsAuthenticated )
+    {
+        var fullName = User.Claims.FirstOrDefault(elem => elem.Type == "fullName");
+        <h3>@fullName.Value</h3>
+    }
+    else
+    {
+     <h3> Bienvenido.</h3>   
+    }
+ 
+
+</div>
