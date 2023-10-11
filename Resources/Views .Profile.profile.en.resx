@@ -117,6 +117,36 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label_advertisements" xml:space="preserve">
+    <value>Advertisements</value>
+  </data>
+  <data name="label_button_create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="label_button_delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="label_button_edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="label_dni" xml:space="preserve">
+    <value>Identification</value>
+  </data>
+  <data name="label_email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="label_firstname" xml:space="preserve">
+    <value>Firstname</value>
+  </data>
+  <data name="label_info" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="label_lastname" xml:space="preserve">
+    <value>Lastname</value>
+  </data>
+  <data name="label_no_add" xml:space="preserve">
+    <value>You don't have publish ads</value>
+  </data>
   <data name="label_profile" xml:space="preserve">
     <value>User Profile</value>
   </data>

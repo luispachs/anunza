@@ -263,3 +263,5 @@ C:\Users\gato1\source\repos\TablonAnuncios\obj\Debug\net6.0\TablonAnuncios.Resou
 C:\Users\gato1\source\repos\TablonAnuncios\obj\Debug\net6.0\TablonAnuncios.Resources.Views.Profile.edit.en.resources
 C:\Users\gato1\source\repos\TablonAnuncios\obj\Debug\net6.0\TablonAnuncios.Resources.Views.Profile.edit.es.resources
 C:\Users\gato1\source\repos\TablonAnuncios\obj\Debug\net6.0\TablonAnuncios.Resources.Views.Profile.profile.es.resources
+C:\Users\gato1\source\repos\TablonAnuncios\obj\Debug\net6.0\TablonAnuncios.Resources.Views.Home.login.en.resources
+C:\Users\gato1\source\repos\TablonAnuncios\obj\Debug\net6.0\TablonAnuncios.Resources.Views.Home.login.es.resources
