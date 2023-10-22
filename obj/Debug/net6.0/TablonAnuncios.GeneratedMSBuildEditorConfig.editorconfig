@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\gato1\source\repos\TablonAnuncios
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/gato1/source/repos/TablonAnuncios/Views/Ads/createAd.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRzXGNyZWF0ZUFkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/gato1/source/repos/TablonAnuncios/Views/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

@@ -1,0 +1,60 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using Microsoft.AspNetCore.Mvc.Localization;
+@inject IViewLocalizer localizer;
+@{
+    ViewData["title"] = localizer["title_new_ads"];
+}
+<section class="container">
+    <div class="row d-flex justify-content-center"><h2>@localizer["title_new_ads"]</h2></div>
+    <form id="create-ad" name="create-form" asp-action="create" asp-controller="ads" method="post">
+        <div class="form-group">
+            <label class="form-label" for="title">@localizer["label_title_ad"]</label>
+            <input type="text" name="title"placeholder="@localizer["label_title_ad"]" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="description">@localizer["label_description_ad"]</label>
+            <textarea type="text" name="description " placeholder="@localizer["label_description_ad"]" class="form-control" wrap="hard"></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="value">@localizer["label_value"]</label>
+            <input type="number" name="value " placeholder="@localizer["label_value"]" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="images">@localizer["label_images"]</label>
+            <input type="file" name="images" placeholder="@localizer["label_images"]" class="form-control" accept="image/png,image/jpeg,image/jpg" multiple/>
+        </div>
+        <div class="form-group">
+            <label>@localizer["label_type"]</label>
+            <fieldset class ="form-group">
+                <legend>@localizer["label_legend_ad"]</legend>
+                <div class="row">
+                    <div class="col">
+                        <label>@localizer["label_sell"]</label>
+                        <input type="radio" value="sell" name="type" />
+                    </div>
+                    <div class="col">
+                        <label>@localizer["label_buy"]</label>
+                        <input type="radio" value="buy" name="type" />
+                    </div>
+                    <div class="col">
+                        <label>@localizer["label_rent"]</label>
+                        <input type="radio" value="rent" name="type" />
+                    </div>
+                    <div class="col">
+                        <label>@localizer["label_hire"]</label>
+                        <input type="radio" value="hire" name="type" />
+                    </div>
+                    <div class="col">
+                        <label>@localizer["label_offer_service"]</label>
+                        <input type="radio" value="offer-services" name="type" />
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success">@localizer["label_create"]</button><a href="/" class="btn btn-danger">@localizer["label_cancel"]</a>
+        </div>
+    </form>
+</section>

@@ -1,10 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace TablonAnuncios.Controllers
 {
     public class AdsController : Controller
     {
-        public IActionResult Index()
+        [Authorize]
+        public IActionResult index()
+        {
+            return View("createAd");
+        }
+        [HttpPost]
+        [Authorize]
+        public IActionResult create()
         {
             return View();
         }
