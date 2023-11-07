@@ -16,8 +16,10 @@ namespace TablonAnuncios.Models
         public string Config { get; set; } = null!;
         public int City { get; set; }
         public float? Value { get; set; }
+        public int UserId { get; set; }
 
         public virtual City CityNavigation { get; set; } = null!;
+        public virtual User User { get; set; } = null!;
         public virtual ICollection<Notification> Notifications { get; set; }
     }
 }

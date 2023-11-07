@@ -2,24 +2,26 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @using Microsoft.AspNetCore.Mvc.Localization;
+@model TablonAnuncios.DataModels.IndexDataModel;
 @inject IViewLocalizer localizer;
+
 @{
     ViewData["title"] = localizer["title_new_ads"];
 }
 <section class="container">
     <div class="row d-flex justify-content-center"><h2>@localizer["title_new_ads"]</h2></div>
-    <form id="create-ad" name="create-form" asp-action="create" asp-controller="ads" method="post">
+    <form id="create-ad" name="create-form" asp-action="create" asp-controller="ads" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label class="form-label" for="title">@localizer["label_title_ad"]</label>
             <input type="text" name="title"placeholder="@localizer["label_title_ad"]" class="form-control"/>
         </div>
         <div class="form-group">
             <label class="form-label" for="description">@localizer["label_description_ad"]</label>
-            <textarea type="text" name="description " placeholder="@localizer["label_description_ad"]" class="form-control" wrap="hard"></textarea>
+            <textarea type="text" name="description" placeholder="@localizer["label_description_ad"]" class="form-control" wrap="hard"></textarea>
         </div>
         <div class="form-group">
             <label class="form-label" for="value">@localizer["label_value"]</label>
-            <input type="number" name="value " placeholder="@localizer["label_value"]" class="form-control"/>
+            <input type="number" name="value" placeholder="@localizer["label_value"]" class="form-control"/>
         </div>
         <div class="form-group">
             <label class="form-label" for="images">@localizer["label_images"]</label>
@@ -54,7 +56,43 @@
             </fieldset>
         </div>
         <div class="form-group">
+            <label for="state" class="form-label">@localizer["label_state"]</label>
+            <select name="state" onchange="getCities()" id="state" class="form-control">
+                @foreach(var state in Model.States)
+                {
+                    <option value="@state.Id">@state.Name</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="city" class="form-label">@localizer["label_state"]</label>
+            <select name="city" id="cities" class="form-control">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
             <button class="btn btn-success">@localizer["label_create"]</button><a href="/" class="btn btn-danger">@localizer["label_cancel"]</a>
         </div>
     </form>
 </section>
+<script>
+    function getCities() {
+        let value = document.getElementById("state").value;
+        fetch("/get-cities/" + value)
+            .then(data => {
+                return data.json();
+            }).then(json => {
+                result = json.citiesList.result;
+                let citiesSelect = document.getElementById("cities")
+                result.forEach(elem => {
+                    let option = document.createElement("option");
+                    option.textContent = elem.name;
+                    option.value = elem.id;
+                    citiesSelect.appendChild(option);
+                })
+            })
+
+        
+    }
+
+</script>

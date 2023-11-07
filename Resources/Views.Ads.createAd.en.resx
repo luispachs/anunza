@@ -123,6 +123,9 @@
   <data name="label_cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="label_city" xml:space="preserve">
+    <value>City</value>
+  </data>
   <data name="label_create" xml:space="preserve">
     <value>Create</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="label_sell" xml:space="preserve">
     <value>Sell</value>
+  </data>
+  <data name="label_state" xml:space="preserve">
+    <value>State</value>
   </data>
   <data name="label_title_ad" xml:space="preserve">
     <value>Title</value>

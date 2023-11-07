@@ -57,7 +57,9 @@ namespace TablonAnuncios.Controllers
                 var claims = new List<Claim> {
                     new Claim(ClaimTypes.Email, userObject.Email),
                     new Claim("fullName", userObject.Firstname+" "+userObject.Lastname),
+                    new Claim("id",userObject.Id.ToString()),
                     new Claim(ClaimTypes.Role, userObject.Role),
+                    
                 };
                 var claimsIdentity = new ClaimsIdentity(claims,CookieAuthenticationDefaults.AuthenticationScheme);
                 var authProperties = new AuthenticationProperties

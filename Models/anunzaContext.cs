@@ -36,6 +36,8 @@ namespace TablonAnuncios.Models
 
                 entity.HasIndex(e => e.City, "city");
 
+                entity.HasIndex(e => e.UserId, "user_id");
+
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.City).HasColumnName("city");
@@ -52,6 +54,8 @@ namespace TablonAnuncios.Models
                     .HasMaxLength(160)
                     .HasColumnName("title");
 
+                entity.Property(e => e.UserId).HasColumnName("user_id");
+
                 entity.Property(e => e.Value)
                     .HasColumnName("value")
                     .HasDefaultValueSql("'0'");
@@ -60,6 +64,12 @@ namespace TablonAnuncios.Models
                     .WithMany(p => p.Anuncios)
                     .HasForeignKey(d => d.City)
                     .HasConstraintName("anuncio_ibfk_1");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Anuncios)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("anuncio_ibfk_2");
             });
 
             modelBuilder.Entity<City>(entity =>

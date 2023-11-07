@@ -7,6 +7,7 @@ namespace TablonAnuncios.Models
     {
         public User()
         {
+            Anuncios = new HashSet<Anuncio>();
             Notifications = new HashSet<Notification>();
         }
 
@@ -25,6 +26,7 @@ namespace TablonAnuncios.Models
 
         public virtual City CityNavigation { get; set; } = null!;
         public virtual State StateNavigation { get; set; } = null!;
+        public virtual ICollection<Anuncio> Anuncios { get; set; }
         public virtual ICollection<Notification> Notifications { get; set; }
     }
 }
